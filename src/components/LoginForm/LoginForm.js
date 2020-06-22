@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Input, Label } from '../Form/Form'
+import { Link } from 'react-router-dom'
 import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../contexts/UserContext'
 import Button from '../Button/Button'
@@ -43,39 +44,47 @@ class LoginForm extends Component {
   render() {
     const { error } = this.state
     return (
-      <form
-        className='LoginForm'
-        onSubmit={this.handleSubmit}
-      >
-        <div role='alert'>
-          {error && <p>{error}</p>}
-        </div>
-        <div>
-          <Label htmlFor='login-username-input'>
-            Username
-          </Label>
-          <Input
-            ref={this.firstInput}
-            id='login-username-input'
-            name='username'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='login-password-input'>
-            Password
-          </Label>
-          <Input
-            id='login-password-input'
-            name='password'
-            type='password'
-            required
-          />
-        </div>
-        <Button type='submit'>
-          Login
-        </Button>
-      </form>
+      <div className='login-form'>
+        <header>
+          <h2>Login <i className="fas fa-sign-in-alt"></i></h2>
+        </header>
+        <form
+          className='LoginForm'
+          onSubmit={this.handleSubmit}
+        >
+          <div role='alert'>
+            {error && <p>{error}</p>}
+          </div>
+          <div>
+            <Label htmlFor='login-username-input'>
+              Username
+            </Label>
+            <Input
+              ref={this.firstInput}
+              id='login-username-input'
+              name='username'
+              placeholder='Enter here...'
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor='login-password-input'>
+              Password
+            </Label>
+            <Input
+              id='login-password-input'
+              name='password'
+              type='password'
+              placeholder='Enter here...'
+              required
+            />
+          </div>
+          <Button type='submit'>
+            Login
+          </Button>
+          <Link to='/register' className='have-accnt'>Don't have an account?</Link>
+        </form>
+      </div>
     )
   }
 }

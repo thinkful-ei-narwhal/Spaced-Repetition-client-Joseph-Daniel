@@ -1,19 +1,165 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
-@import url('https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Lora&family=PT+Serif&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lora&family=Notable&display=swap');
 
+Notable
+Josefin Slab
 
 * {
   box-sizing: border-box;
 }
 
+h1 {
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 3.5rem;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Notable' ,sans-serif;
+  letter-spacing: 0.2rem;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Ubuntu", sans-serif;
+  text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F7FFF7;
+  color: #343434;
+  font-family: 'Lora', serif;
 }
 
 :root {
   --font-size: calc(10px + 1vmin);
+}
+
+.App {
+  margin: 0;
+  padding: 0;
+}
+
+/* Styling for Registration Page */
+
+.app-name {
+  text-decoration: none;
+  color: #2F3061
+}
+
+.login-link,
+.signup-link {
+  text-decoration: none;
+  font-family: 'Lora', serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #FFE66D;
+  color: #6CA6C1;
+  padding: 10px 30px;
+  margin: 20px auto 20px;
+  letter-spacing: 2px;
+}
+
+.login-link:hover,
+.signup-link:hover {
+  cursor: pointer;
+  background-color: #2F3061;
+  color: #FFE66D;
+  transition: 0.3s;
+}
+
+.fa-universal-access,
+.fa-ser-plus {
+  color: #FFE66D;
+  background-color: #2F3061;
+  border-radius: 50%;
+}
+
+.registration-form-section,
+.login-form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registration-form-section > p {
+  font-weight: bold;
+  font-size: 18px;
+  width: 320px;
+  margin: 40px auto;
+}
+
+.registration-form,
+.login-form {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 500px;
+  padding: 20px 0 50px;
+}
+
+.login-form {
+  margin-top: 70px;
+}
+
+.registration-form label,
+.registration-form input,
+.registration-form button,
+.login-form label,
+.login-form input,
+.login-form button {
+  display: block;
+  margin: 0 auto 0;
+}
+
+.registration-form label,
+.login-form label {
+  font-size: 1rem;
+}
+
+.registration-form input,
+.login-form input {
+  font-family: 'Lora', sans-serif;
+  margin-top: 8px;
+  padding: 10px 25px 10px 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  color: lightgray;
+  width: 60%;
+
+}
+
+.registration-form div,
+.login-form div {
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.registration-form button,
+.login-form button {
+  font-family: 'Lora', serif;
+  font-weight: bold;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #FFE66D;
+  color: #6CA6C1;
+  padding: 10px 30px;
+  margin: 20px auto 20px;
+  letter-spacing: 2px;
+}
+
+.registration-form button:hover,
+.login-form button:hover {
+  cursor: pointer;
+  background-color: #2F3061;
+  color: #FFE66D;
+  transition: 0.3s;
+}
+
+.have-accnt {
+  color: #6CA6C1;
+  font-size: 16px;
 }

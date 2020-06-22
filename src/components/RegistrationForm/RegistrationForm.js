@@ -40,52 +40,60 @@ class RegistrationForm extends Component {
   render() {
     const { error } = this.state
     return (
-      <form
-        onSubmit={this.handleSubmit}
-      >
-        <div role='alert'>
-          {error && <p>{error}</p>}
-        </div>
-        <div>
-          <Label htmlFor='registration-name-input'>
-            Enter your name<Required />
-          </Label>
-          <Input
-            ref={this.firstInput}
-            id='registration-name-input'
-            name='name'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='registration-username-input'>
-            Choose a username<Required />
-          </Label>
-          <Input
-            id='registration-username-input'
-            name='username'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='registration-password-input'>
-            Choose a password<Required />
-          </Label>
-          <Input
-            id='registration-password-input'
-            name='password'
-            type='password'
-            required
-          />
-        </div>
-        <footer>
-          <Button type='submit'>
-            Sign up
-          </Button>
-          {' '}
-          <Link to='/login'>Already have an account?</Link>
-        </footer>
-      </form>
+      <div className="registration-form">
+        <header>
+          <h2>Sign up <i className="fas fa-user-plus"></i></h2>
+        </header>
+        <form
+          onSubmit={this.handleSubmit}
+        >
+          <div role='alert'>
+            {error && <p>{error}</p>}
+          </div>
+          <div>
+            <Label htmlFor='registration-name-input'>
+              Enter your name<Required />
+            </Label>
+            <Input
+              ref={this.firstInput}
+              id='registration-name-input'
+              name='name'
+              placeholder='First and Last Name...'
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor='registration-username-input'>
+              Choose a username<Required />
+            </Label>
+            <Input
+              id='registration-username-input'
+              name='username'
+              placeholder='Username...'
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor='registration-password-input'>
+              Choose a password<Required />
+            </Label>
+            <Input
+              id='registration-password-input'
+              name='password'
+              type='password'
+              placeholder='Password...'
+              required
+            />
+          </div>
+          <footer>
+            <Button type='submit'>
+              Sign up
+            </Button>
+            {' '}
+            <Link to='/login' className='have-accnt'>Already have an account?</Link>
+          </footer>
+        </form>
+      </div>
     )
   }
 }

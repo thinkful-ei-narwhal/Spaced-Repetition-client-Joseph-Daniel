@@ -31,9 +31,9 @@ class Header extends Component {
   renderLoginLink() {
     return (
       <nav>
-        <Link to='/login'>Login</Link>
+        <Link to='/login' className='login-link'>Login</Link>
         {' '}
-        <Link to='/register'>Sign up</Link>
+        <Link to='/register' className='signup-link'>Sign up</Link>
       </nav>
     )
   }
@@ -42,8 +42,8 @@ class Header extends Component {
     return (
       <header>
         <h1>
-          <Link to='/'>
-            Spaced repetition
+          <Link to='/' className="app-name">
+            Oratore <i className="fas fa-universal-access"></i>
           </Link>
         </h1>
         {TokenService.hasAuthToken()
