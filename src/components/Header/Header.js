@@ -13,14 +13,15 @@ class Header extends Component {
 
   renderLogoutLink() {
     return (
-      <div>
-        <span>
-          {this.context.user.name}
-        </span>
+      <div className='nav-text'>
+        <div className='user-welcome-text'>
+          Welcome, {this.context.user.name}!
+        </div>
         <nav>
           <Link
             onClick={this.handleLogoutClick}
-            to='/login'>
+            to='/login' 
+            className='logout-link'>
             Logout
           </Link>
         </nav>
@@ -40,16 +41,18 @@ class Header extends Component {
 
   render() {
     return (
-      <header>
-        <h1>
-          <Link to='/' className="app-name">
-            Oratore <i className="fas fa-universal-access"></i>
-          </Link>
-        </h1>
+      <div className='header'>
+        <header>
+          <h1>
+            <Link to='/' className="app-name">
+              Oratore <i className="fas fa-universal-access"></i>
+            </Link>
+          </h1>
+        </header>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
-      </header>
+      </div>
     );
   }
 }
