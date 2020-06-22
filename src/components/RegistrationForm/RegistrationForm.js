@@ -85,11 +85,11 @@ class RegistrationForm extends Component {
               required
             />
           </div>
-          <footer className='RegistrationForm__footer'>
+          <footer>
             <Button type='submit'>
               Sign up
             </Button>
-            <Link to='/login'>Already have an account?</Link>
+            <Link to='/login' className='have-accnt'>Already have an account?</Link>
           </footer>
         </form>
     )
