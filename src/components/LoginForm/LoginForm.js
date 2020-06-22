@@ -46,7 +46,8 @@ class LoginForm extends Component {
     return (
       <div className='login-form'>
         <header>
-          <h2>Login <i className="fas fa-sign-in-alt"></i></h2>
+          <h2>Login</h2>
+          <i className="fas fa-sign-in-alt"></i>
         </header>
         <form
           className='LoginForm'
@@ -82,7 +83,6 @@ class LoginForm extends Component {
           <Button type='submit'>
             Login
           </Button>
-          <Link to='/register' className='have-accnt'>Don't have an account?</Link>
         </form>
       </div>
     )

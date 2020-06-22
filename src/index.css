@@ -179,14 +179,11 @@ body {
 
 .nav-text {
   display: flex;
-  width: 500px;
-  position: absolute;
-  top: 10;
-  right: 0;
+  justify-content: center;
+  margin: auto;
 }
 
 .user-welcome-text {
-  margin-right: 20px;
   font-size: 18px;
   font-weight: bold;
 }

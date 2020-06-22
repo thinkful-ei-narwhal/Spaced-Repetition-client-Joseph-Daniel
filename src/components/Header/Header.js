@@ -41,18 +41,20 @@ class Header extends Component {
 
   render() {
     return (
-      <div className='header'>
-        <header>
+      
+        <header className="header">
           <h1>
             <Link to='/' className="app-name">
-              Oratore <i className="fas fa-universal-access"></i>
+              Spaced repetition 
             </Link>
           </h1>
+          <h1>Oratore <i className="fas fa-universal-access"></i></h1>
+          {TokenService.hasAuthToken()
+            ? this.renderLogoutLink()
+            : this.renderLoginLink()}
         </header>
-        {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
-          : this.renderLoginLink()}
-      </div>
+        
+      
     );
   }
 }

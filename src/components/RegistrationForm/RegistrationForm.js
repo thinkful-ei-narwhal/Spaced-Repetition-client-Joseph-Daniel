@@ -40,13 +40,13 @@ class RegistrationForm extends Component {
   render() {
     const { error } = this.state
     return (
-      <div className="registration-form">
-        <header>
-          <h2>Sign up <i className="fas fa-user-plus"></i></h2>
-        </header>
-        <form
+        
+        <form className="registration-form"
           onSubmit={this.handleSubmit}
         >
+        <div>
+          <h2>Sign up</h2><i className="fas fa-user-plus"></i>
+        </div>
           <div role='alert'>
             {error && <p>{error}</p>}
           </div>
@@ -85,15 +85,13 @@ class RegistrationForm extends Component {
               required
             />
           </div>
-          <footer>
+          <footer className='RegistrationForm__footer'>
             <Button type='submit'>
               Sign up
             </Button>
-            {' '}
-            <Link to='/login' className='have-accnt'>Already have an account?</Link>
+            <Link to='/login'>Already have an account?</Link>
           </footer>
         </form>
-      </div>
     )
   }
 }
