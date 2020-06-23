@@ -1,5 +1,7 @@
-import React from 'react'
-import LanguageService from '../../services/language-service'
+import React from 'react';
+import { Link } from 'react-router-dom'
+import LanguageService from '../../services/language-service';
+import DBWordList from '../DBWordList/DBWordList';
 
 export default class Dashboard extends React.Component {
   state = {
@@ -18,11 +20,15 @@ export default class Dashboard extends React.Component {
   render() {
     const { language } = this.state
     return (
-      <div>
+      <section className="dashboard">
         <header>
-          <h2>Welcome to {language.name}!</h2>
+          <h2>Welcome to {language.name}! 🇮🇹</h2>
+          <h4>Total correct answers: {language.total_score}</h4>
+          <h3>Words to practice</h3>
         </header>
-      </div>
+        <DBWordList words={this.state.words}/>
+        <Link to='/learn'>Start practicing</Link>
+      </section>
     )
   }
 }
