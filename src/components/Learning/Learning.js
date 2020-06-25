@@ -11,13 +11,15 @@ export class Learning extends Component {
     input: {value: '', touched: false},
     answered: false,
     next: {},
-    head: {}
+    head: {},
+    totalScore: 0,
+    nextWord: ''
   }
 
   componentDidMount() {
     LanguageService.getLanguageHead()
       .then(data => {
-        this.setState({ head: data})
+        this.setState({ head: data, totalScore: data.totalScore, nextWord: data.nextWord})
       })
   }
 
@@ -28,7 +30,7 @@ export class Learning extends Component {
   handlePost = () => {
     LanguageService.postGuess(this.state.input.value)
       .then(data => {
-        this.setState({next: data, answered: true});
+        this.setState({next: data, answered: true, totalScore: data.totalScore, nextWord: data.nextWord});
       })
   }
 
@@ -49,8 +51,8 @@ export class Learning extends Component {
     <div className="DisplayContainer">
     <div className="DisplayScore">
       <p>Your total score is: {this.state.next.totalScore}</p><br/>
-      <span>Correct Count: {this.state.head.wordCorrectCount}</span><br/>
-      <span>Incorrect Count: {this.state.head.wordIncorrectCount}</span><br/>
+      <span>Correct Count: {this.state.next.wordCorrectCount}</span><br/>
+      <span>Incorrect Count: {this.state.next.wordIncorrectCount}</span><br/>
       {this.state.next.isCorrect ? <h2>You were correct! :D</h2> : <h2>Good try, but not quite right :(</h2>}
     </div>
     <div className="DisplayFeedback">
@@ -68,8 +70,8 @@ export class Learning extends Component {
   renderUsual() {
     return (
       <div className="learning-card">
-        <h2>Translate the word:</h2><span>{this.state.head.nextWord}</span>
-        <p>Your total score is: <b>{this.state.head.totalScore}</b></p>
+        <h2>Translate the word:</h2><span>{this.state.nextWord}</span>
+        <p>Your total score is: <b>{this.state.totalScore}</b></p>
         <div className="correct-incorrect">
           <p>You have answered this word correctly <b>{this.state.head.wordCorrectCount}</b> times.</p>
           <p>You have answered this word incorrectly <b>{this.state.head.wordIncorrectCount}</b> times.</p>

@@ -252,3 +252,8 @@ span {
   font-family: 'Lora', serif;
   font-size: 24px;
 }
+
+.flagicon {
+  display: inline-block;
+  width: 30px;
+}
