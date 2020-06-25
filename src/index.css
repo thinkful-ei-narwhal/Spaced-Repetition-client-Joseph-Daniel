@@ -251,3 +251,8 @@ span {
 .DisplayScore span {
   font-family: 'Lora', serif;
 }
+
+.flagicon {
+  display: inline-block;
+  width: 30px;
+}
