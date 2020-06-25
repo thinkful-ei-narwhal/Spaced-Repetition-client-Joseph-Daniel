@@ -36,18 +36,31 @@ export class Learning extends Component {
     this.setState({answered: false})
   }
 
+  updateHead = () => {
+    LanguageService.getLanguageHead()
+      .then(data => {
+        this.setState({ head: data})
+        this.clearAnswer()
+    })
+  }
+
   renderAnsScreen() {
-    console.log(this.state.next);
     return (
-      
-    <div>
-      <p>Total Score: {this.state.next.totalScore}</p>
-      <p>Correct Count: {this.state.next.wordCorrectCount}</p>
-      <p>Incorrect Count: {this.state.next.wordIncorrectCount}</p>
-      {this.state.next.isCorrect ? <p>You got it correct</p> : <p>you got it incorrect</p>}
-      <button
-      onClick={() => this.clearAnswer()}
-      >Next</button>
+    <div className="DisplayContainer">
+    <div className="DisplayScore">
+      <p>Your total score is: {this.state.next.totalScore}</p>
+      <h4>Correct Count: {this.state.head.wordCorrectCount}</h4>
+      <h4>Incorrect Count: {this.state.head.wordIncorrectCount}</h4>
+      {this.state.next.isCorrect ? <h2>You were correct! :D</h2> : <h2>Good try, but not quite right :(</h2>}
+    </div>
+    <div className="DisplayFeedback">
+        <p>The correct translation for {this.state.head.nextWord} was {this.state.next.answer} and you chose {this.state.input.value}!</p>
+    </div>
+      <Button
+      onClick={() => {
+        this.updateHead()
+        }}
+      >Try another word!</Button>
     </div>
     )
   }
@@ -61,14 +74,14 @@ export class Learning extends Component {
           <p>You have answered this word correctly <b>{this.state.head.wordCorrectCount}</b> times.</p>
           <p>You have answered this word incorrectly <b>{this.state.head.wordIncorrectCount}</b> times.</p>
         </div>
-        <form className="answer-form">
+        <form className="answer-form" onSubmit={(e) => {
+          e.preventDefault();
+          this.handlePost();
+        }}>
           <label htmlFor='learn-guess-input'>What's the translation for this word?</label>
           <input type='text' id='learn-guess-input' name='learn-guess-input' value={this.state.input.value} onChange={e => this.setInput(e.target.value)}required/>
           <Button type='submit'
-          onClick={(e) => {
-            e.preventDefault();
-            this.handlePost();
-          }}>Submit your answer</Button>
+          >Submit your answer</Button>
         </form>
       </div>
     )
@@ -76,9 +89,9 @@ export class Learning extends Component {
 
   render() {
     return (
-      <div>
+      <main>
         {this.state.answered ? this.renderAnsScreen() : this.renderUsual()}
-      </div>
+      </main>
     )
     
   }

@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Lora&family=Notable&display=swap');
 
-Notable
-Josefin Slab
-
 * {
   box-sizing: border-box;
 }
@@ -14,7 +11,7 @@ h1 {
 }
 
 h2, h3, h4, h5, h6 {
-  font-family: 'Notable' ,sans-serif;
+  font-family: 'Notable', sans-serif;
   letter-spacing: 0.2rem;
 }
 
@@ -160,7 +157,8 @@ body {
 .registration-form button,
 .login-form button,
 .dashboard a,
-.answer-form button {
+.answer-form button,
+.DisplayContainer button {
   text-decoration: none;
   font-family: 'Lora', serif;
   font-weight: bold;
@@ -177,7 +175,8 @@ body {
 .registration-form button:hover,
 .login-form button:hover,
 .dashboard a:hover,
-.answer-form button:hover {
+.answer-form button:hover,
+.DisplayContainer button:hover {
   text-decoration: none;
   cursor: pointer;
   background-color: #2F3061;
@@ -241,4 +240,14 @@ span {
 
 .answer-form {
   padding-top: 30px;
+}
+
+.DisplayScore p {
+  font-family: 'Notable', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.2rem;
+}
+
+.DisplayScore span {
+  font-family: 'Lora', serif;
 }
