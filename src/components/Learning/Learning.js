@@ -49,8 +49,8 @@ export class Learning extends Component {
     <div className="DisplayContainer">
     <div className="DisplayScore">
       <p>Your total score is: {this.state.next.totalScore}</p><br/>
-      <span>Correct Count: {this.state.head.wordCorrectCount}</span><br/>
-      <span>Incorrect Count: {this.state.head.wordIncorrectCount}</span><br/>
+      <span>Correct Count: {this.state.next.wordCorrectCount}</span><br/>
+      <span>Incorrect Count: {this.state.next.wordIncorrectCount}</span><br/>
       {this.state.next.isCorrect ? <h2>You were correct! :D</h2> : <h2>Good try, but not quite right :(</h2>}
     </div>
     <div className="DisplayFeedback">
